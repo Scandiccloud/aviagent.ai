@@ -16,8 +16,7 @@
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
         { "key": "RateLimit-Limit", "value": "100" },
         { "key": "RateLimit-Reset", "value": "60" }
-      ],
-      "continue": true
+      ]
     }
   ],
   "redirects": [
