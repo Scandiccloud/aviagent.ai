@@ -54,6 +54,46 @@ h1 {
         font-size: 1.4rem;
     }
 }
+/* Add these styles to your CSS */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 60px;
+    border-top: 1px solid #eee;
+}
+
+.footer-links {
+    margin-bottom: 15px;
+}
+
+.separator {
+    margin: 0 15px;
+    color: #999;
+}
+
+.copyright {
+    margin: 10px 0 0;
+    font-size: 0.85rem;
+}
+
+footer a {
+    color: #2A5CAA;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+footer a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+/* Automatically update year */
+<script>
+    // Add this script before closing </body> tag
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
     </style>
 </head>
 <body>
@@ -74,10 +114,17 @@ h1 {
             </iframe>
         </div>
 
-        <footer>
-            <a href="/privacy.html">Privacy Policy</a>
-            <a href="/terms.html">Terms of Service</a>
-        </footer>
+<!-- In your footer section -->
+<footer>
+    <div class="footer-links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <span class="separator">|</span>
+        <a href="/terms.html">Terms of Service</a>
+    </div>
+    <p class="copyright">
+        &copy; <span id="currentYear"></span> AviAgent.ai. All rights reserved.
+    </p>
+</footer>
     </div>
 
     <!-- Tally Script -->
