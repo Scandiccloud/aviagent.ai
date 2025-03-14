@@ -9,10 +9,10 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "Content-Security-Policy", "value": "default-src 'self' https://tally.so; script-src 'self' https://tally.so 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://aviagent.ai; frame-src https://tally.so;" },
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://tally.so; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://aviagent.ai; frame-src 'self' https://tally.so;" },
         { "key": "Permissions-Policy", "value": "geolocation=(), microphone=()" },
         { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
         { "key": "RateLimit-Limit", "value": "100" },
         { "key": "RateLimit-Reset", "value": "60" }
