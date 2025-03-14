@@ -18,4 +18,5 @@
         { "key": "RateLimit-Reset", "value": "60" }
       ]
     }
+  ]
 }
