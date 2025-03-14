@@ -18,8 +18,4 @@
         { "key": "RateLimit-Reset", "value": "60" }
       ]
     }
-  ],
-  "redirects": [
-    { "source": "/(.*)", "destination": "https://www.aviagent.ai/$1", "permanent": true }
-  ]
 }
