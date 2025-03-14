@@ -1,16 +1,26 @@
 {
-    "headers": [
-      {
-        "source": "/(.*)",
-        "headers": [
-          { "key": "X-Content-Type-Options", "value": "nosniff" },
-          { "key": "X-Frame-Options", "value": "DENY" },
-          { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
-        ],
-        "continue": true
-      }
-    ],
-    "redirects": [
-      { "source": "/(.*)", "destination": "https://www.aviagent.ai/$1", "permanent": true }
-    ]
-  }
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Content-Security-Policy", "value": "default-src 'self' https://tally.so; script-src 'self' https://tally.so 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://aviagent.ai; frame-src https://tally.so;" },
+        { "key": "Permissions-Policy", "value": "geolocation=(), microphone=()" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "RateLimit-Limit", "value": "100" },
+        { "key": "RateLimit-Reset", "value": "60" }
+      ],
+      "continue": true
+    }
+  ],
+  "redirects": [
+    { "source": "/(.*)", "destination": "https://www.aviagent.ai/$1", "permanent": true }
+  ]
+}
