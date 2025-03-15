@@ -205,7 +205,7 @@
             <a href="/terms.html">Terms of Service</a>
         </div>
         <p class="copyright">
-            &copy; <span id="currentYear"></span> AviAgent.ai. All rights reserved.
+            &copy; <span id="currentYear"></span> AviAgent.ai. All rights reserved. 
         </p>
     </footer>
 
@@ -213,5 +213,10 @@
     <script>
         var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
     </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+    });
+</script>
 </body>
 </html>
