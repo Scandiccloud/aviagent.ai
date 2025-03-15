@@ -178,23 +178,24 @@ header h1 {
         </ul>
     </section>
 
-       <!-- Footer -->
-       <footer>
-        <div class="footer-links">
-            <a href="about.html">About</a>
-            <span class="separator">|</span>
-            <a href="/privacy.html">Privacy Policy</a>
-            <span class="separator">|</span>
-            <a href="/terms.html">Terms of Service</a>
+          <!-- Footer -->
+          <footer>
+            <div class="footer-links">
+                <a href="about.html">About</a>
+                <span class="separator">|</span>
+                <a href="/privacy.html">Privacy Policy</a>
+                <span class="separator">|</span>
+                <a href="/terms.html">Terms of Service</a>
+            </div>
+            <p class="copyright">
+                &copy; <span id="currentYear"></span> AviAgent.ai. All rights reserved. 
+            </p>
+        </footer>
         </div>
-        <p class="copyright">
-            &copy; <span id="currentYear"></span> AviAgent.ai. All rights reserved. 
-        </p>
-    </footer>
-
-    <!-- Script to Update Year Automatically -->
-    <script>
-        document.getElementById("currentYear").textContent = new Date().getFullYear();
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("currentYear").textContent = new Date().getFullYear();
+        });
     </script>
 
 </body>
