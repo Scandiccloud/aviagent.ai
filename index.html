@@ -157,20 +157,22 @@
             margin: 30px 0 20px;
         }
     }
+    #tally-form {
+        scroll-margin-top: 100px; /* Adjust based on your header height */
+    }
     </style>
 </head>
 <body>
     <!-- Header Section -->
     <header>
         <div class="header-container">
-            <img src="assets/logo.avif" alt="AviAgent.ai - AI Aviation Manual Assistant Logo" class="logo">
+            <img src="assets/logo.avif" alt="AviAgent.ai Logo" class="logo">
             <div>
                 <h1>AI for Cessna 172/182 Manuals</h1>
                 <p class="subhead">Join thousands of aviation professionals</p>
                 <a href="#tally-form" class="join-button">Join Waitlist Now</a>
             </div>
-        </div>
-        
+        </div>        
         
     </header>
 
@@ -201,17 +203,29 @@
             </div>
         </section>
 
-        <!-- Tally Form Integration -->
-        <section class="form-container" id="waitlist">
-            <div class="form-wrapper">
-                <iframe id="tally-iframe"
-                        data-tally-src="https://tally.so/embed/mYkqz0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-                        loading="eager"
-                        title="AviAgent.ai Waitlist Form">
-                </iframe>
-            </div>
-        </section>
-    </main>
+<!-- Modified Form Section -->
+<div id="tally-form" class="form-container">
+    <div class="form-loader">Loading form...</div>
+    <iframe id="tally-iframe"
+            data-tally-src="https://tally.so/embed/mYkqz0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+            title="Aviation Professional Waitlist"
+            loading="eager">
+    </iframe>
+</div>
+
+<!-- Add this JavaScript for smooth scroll behavior -->
+<script>
+    document.querySelectorAll('a[href="#tally-form"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const formSection = document.getElementById('tally-form');
+            formSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
+</script>
 
     <!-- Tally Script -->
     <script src="https://tally.so/widgets/embed.js"></script>
