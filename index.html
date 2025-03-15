@@ -115,22 +115,63 @@
             color: #666;
             border-top: 1px solid #eee;
         }
+            /* New Join Button Styles */
+    .join-button {
+        background: #2A5CAA;
+        color: white !important;
+        padding: 12px 30px;
+        border-radius: 30px;
+        text-decoration: none !important;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-block;
+        margin-top: 20px;
+        border: 2px solid #1E3A8A;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .join-button:hover {
+        background: #1E3A8A;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    /* Update header container for better spacing */
+    .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        margin: 40px 0 30px;
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+        .join-button {
+            padding: 10px 25px;
+            font-size: 0.95rem;
+            margin-top: 15px;
+        }
+        
+        .header-container {
+            margin: 30px 0 20px;
+        }
+    }
     </style>
 </head>
 <body>
     <!-- Header Section -->
     <header>
         <div class="header-container">
-            <img src="assets/logo.avif" 
-                 alt="AviAgent.ai Logo"
-                 class="logo"
-                 width="180"
-                 height="60">
+            <img src="assets/logo.avif" alt="AviAgent.ai - AI Aviation Manual Assistant Logo" class="logo">
             <div>
                 <h1>AI for Cessna 172/182 Manuals</h1>
-                <p class="subhead"><a href="#tally-form" class="cta-button">Join</a> thousands of aviation professionals on our waitlist</p>
+                <p class="subhead">Join thousands of aviation professionals</p>
+                <a href="#tally-form" class="join-button">Join Waitlist Now</a>
             </div>
         </div>
+        
+        
     </header>
 
     <!-- Main Content -->
