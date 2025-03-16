@@ -57,8 +57,9 @@
 
         <form id="contact-form">
             <input type="text" name="name" id="name" placeholder="Your Name" required>
-            <input type="email" name="email" id="email" placeholder="Your Email" required>
-            <textarea name="message" id="message" placeholder="Your Message" required></textarea>
+            <input type="email" name="email" id="email" placeholder="Your Email" required 
+                   pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+            <textarea name="message" id="message" placeholder="Your Message" required minlength="10"></textarea>
             <button type="submit">Send</button>
         </form>
 
@@ -68,23 +69,32 @@
     </div>
 
     <script>
-        document.getElementById("contact-form").addEventListener("submit", async function(event) {
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
             event.preventDefault();
-
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const message = document.getElementById("message").value;
-
-            const response = await fetch("/api/sendMail", {
+        
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+            
+            if (name === "" || email === "" || message.length < 10) {
+                document.getElementById("response-message").innerText = "Please fill in all fields correctly.";
+                return;
+            }
+        
+            fetch("/api/sendMail", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name, email, message }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("response-message").innerText = data.message;
+            })
+            .catch(error => {
+                document.getElementById("response-message").innerText = "Error sending message.";
             });
-
-            const result = await response.json();
-            document.getElementById("response-message").innerText = result.message;
         });
-    </script>
+        </script>
 
 </body>
 </html>
