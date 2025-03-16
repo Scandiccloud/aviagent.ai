@@ -1,6 +1,6 @@
 // Ensure DOM is loaded before execution
 document.addEventListener("DOMContentLoaded", function () {
-    // Set Current Year in Footer (Avoid Duplicate Execution)
+    // Set Current Year in Footer
     const yearElement = document.getElementById("currentYear");
     if (yearElement) {
         yearElement.textContent = new Date().getFullYear();
@@ -17,57 +17,29 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Tally Form Loading Handling
-    const formIframe = document.querySelector('#tally-form iframe');
-    const formLoader = document.querySelector('.form-loader');
-
-    if (formIframe && formLoader) {
-        const loadTally = () => {
-            formLoader.style.display = 'block'; // Show loader when starting
-            
-            if (typeof Tally !== 'undefined') {
-                Tally.load().then(() => {
-                    formIframe.style.opacity = 1;
-                    formLoader.style.display = 'none'; // Hide on success
-                }).catch(error => {
-                    console.error('Tally load error:', error);
-                    formLoader.innerHTML = 'Form failed to load. Please <a href="https://tally.so/r/mYkqz0">click here</a>';
-                });
-            }
-        };
-
-        // Initial Load
-        if (!document.querySelector('script[src="https://tally.so/widgets/embed.js"]')) {
-            const script = document.createElement('script');
-            script.src = 'https://tally.so/widgets/embed.js';
-            script.onload = loadTally;
-            script.onerror = () => {
-                formLoader.style.display = 'block';
-                formLoader.innerHTML = 'Form failed to load. Please <a href="https://tally.so/r/mYkqz0">click here</a>';
-            };
-            document.body.appendChild(script);
-        } else {
-            loadTally();
-        }
-    }
-
-    // AI Network Animation
+    // AI Network Animation (Fixed & Optimized)
     const canvas = document.getElementById("ai-network");
     if (canvas) {
         const ctx = canvas.getContext("2d");
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener("resize", resizeCanvas);
+        resizeCanvas(); // Initialize size
 
         const nodes = [];
-        const numNodes = 30;
+        const numNodes = 40; // Increased for better effect
 
         for (let i = 0; i < numNodes; i++) {
             nodes.push({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
-                vx: (Math.random() - 0.5) * 0.5,
-                vy: (Math.random() - 0.5) * 0.5,
-                size: Math.random() * 3 + 2
+                vx: (Math.random() - 0.5) * 0.3, // Slower movement
+                vy: (Math.random() - 0.5) * 0.3,
+                size: Math.random() * 3 + 1.5
             });
         }
 
@@ -82,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     if (distance < 150) {
                         ctx.strokeStyle = `rgba(42, 92, 170, ${1 - distance / 150})`;
-                        ctx.lineWidth = 1;
+                        ctx.lineWidth = 0.8;
                         ctx.beginPath();
                         ctx.moveTo(nodes[i].x, nodes[i].y);
                         ctx.lineTo(nodes[j].x, nodes[j].y);
@@ -92,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             for (let i = 0; i < nodes.length; i++) {
-                ctx.fillStyle = `rgba(42, 92, 170, ${Math.random() * 0.8 + 0.2})`;
+                ctx.fillStyle = `rgba(42, 92, 170, ${Math.random() * 0.6 + 0.4})`;
                 ctx.beginPath();
                 ctx.arc(nodes[i].x, nodes[i].y, nodes[i].size, 0, Math.PI * 2);
                 ctx.fill();
@@ -100,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 nodes[i].x += nodes[i].vx;
                 nodes[i].y += nodes[i].vy;
 
+                // Keep nodes within bounds (Bounce Effect)
                 if (nodes[i].x <= 0 || nodes[i].x >= canvas.width) nodes[i].vx *= -1;
                 if (nodes[i].y <= 0 || nodes[i].y >= canvas.height) nodes[i].vy *= -1;
             }

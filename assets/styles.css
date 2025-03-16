@@ -269,6 +269,14 @@ footer a {
         gap: 20px;
     }
 
+    /* Mobile Optimization for AI Background */
+@media (max-width: 768px) {
+    .animated-lines canvas {
+        width: 100vw;
+        height: 100vh;
+        opacity: 0.6;
+    }
+}
     .join-button {
         padding: 10px 25px;
         font-size: 0.95rem;
