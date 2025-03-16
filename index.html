@@ -194,6 +194,26 @@ body {
     width: 100%;
     height: 100%;
 }
+.animated-lines canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* Fix: Allow scrolling */
+    z-index: -1;
+}
+@media (max-width: 768px) {
+    .animated-lines canvas {
+        width: 100vw;
+        height: 100vh;
+        opacity: 0.6; /* Reduce intensity for better readability */
+    }
+}
+body {
+    overflow-y: auto; /* Allow vertical scrolling */
+    min-height: 100vh; /* Ensure full page scrollability */
+}
     </style>
 </head>
 <body>
