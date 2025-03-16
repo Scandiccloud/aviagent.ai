@@ -66,8 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     draw();
     // Ensure Current Year is Updated in Footer
-    const yearElement = document.getElementById("currentYear");
-    if (yearElement) {
-        yearElement.textContent = new Date().getFullYear();
-    }
+    const yearElements = document.querySelectorAll("#currentYear");
+    yearElements.forEach(el => el.textContent = new Date().getFullYear());
 });
