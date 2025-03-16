@@ -248,18 +248,20 @@ footer a {
     height: 100%;
     pointer-events: none;
     z-index: -1;
+    overflow: hidden;
 }
 
 .animated-lines canvas {
     display: block;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
     pointer-events: none;
     z-index: -1;
 }
+
 
 /* Mobile Styles */
 @media (max-width: 768px) {
@@ -276,7 +278,7 @@ footer a {
         height: 100vh;
         opacity: 0.6;
     }
-}
+}       
     .join-button {
         padding: 10px 25px;
         font-size: 0.95rem;
