@@ -205,11 +205,12 @@
 
 <!-- Modified Form Section -->
 <div id="tally-form" class="form-container">
-    <div class="form-loader">Loading form...</div>
-    <iframe id="tally-iframe"
-            data-tally-src="https://tally.so/embed/mYkqz0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-            title="Aviation Professional Waitlist"
-            loading="eager">
+    <div class="form-loader" style="display: none;">Loading form...</div>
+    <iframe 
+        data-tally-src="https://tally.so/embed/mYkqz0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+        title="Aviation Professional Waitlist"
+        loading="eager"
+        style="opacity: 1;">  <!-- Remove initial opacity -->
     </iframe>
 </div>
 
@@ -230,25 +231,37 @@
     <!-- Tally Script -->
     <script src="https://tally.so/widgets/embed.js"></script>
     <script>
-        // Initialize Tally form with error handling
-        document.addEventListener("DOMContentLoaded", () => {
-            const iframe = document.getElementById('tally-iframe');
-            
-            Tally.load().then(() => {
-                Tally.openPopup('mYkqz0', {
-                    layout: 'modal',
-                    width: 700,
-                    autoClose: 3000
-                }).then(() => {
-                    iframe.style.opacity = 1;
-                });
-            }).catch(error => {
-                console.error('Tally form loading error:', error);
-                document.getElementById('waitlist').innerHTML = `
-                    <p class="error-message">Form load failed. Please <a href="https://tally.so/r/mYkqz0">click here</a> to join the waitlist.</p>
-                `;
-            });
-
+        document.addEventListener("DOMContentLoaded", function() {
+            const formIframe = document.querySelector('#tally-form iframe');
+            const formLoader = document.querySelector('.form-loader');
+    
+            const loadTally = () => {
+                formLoader.style.display = 'block'; // Show loader when starting
+                
+                if(typeof Tally !== 'undefined') {
+                    Tally.load().then(() => {
+                        formIframe.style.opacity = 1;
+                        formLoader.style.display = 'none'; // Hide on success
+                    }).catch(error => {
+                        console.error('Tally load error:', error);
+                        formLoader.innerHTML = 'Form failed to load. Please <a href="https://tally.so/r/mYkqz0">click here</a>';
+                    });
+                }
+            };
+    
+            // Initial load
+            if(!document.querySelector('script[src="https://tally.so/widgets/embed.js"]')) {
+                const script = document.createElement('script');
+                script.src = 'https://tally.so/widgets/embed.js';
+                script.onload = loadTally;
+                script.onerror = () => {
+                    formLoader.style.display = 'block';
+                    formLoader.innerHTML = 'Form failed to load. Please <a href="https://tally.so/r/mYkqz0">click here</a>';
+                };
+                document.body.appendChild(script);
+            } else {
+                loadTally();
+            }
         });
     </script>
                 <!-- Footer -->
