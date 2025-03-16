@@ -93,6 +93,18 @@ a:hover {
 .nav a {
     margin: 0 15px;
 }
+/* Center Align Mission & Key Features for index.html */
+.index-container .section {
+    text-align: center;
+}
+
+/* Ensure the Key Features List is Centered */
+.index-container .features-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 /* Sections */
 .section {
@@ -280,4 +292,12 @@ footer a {
         height: 100vh;
         opacity: 0.6;
     }
+}
+/* Ensure Left Alignment for Terms & Privacy Pages */
+.terms-container,
+.privacy-container {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
 }
