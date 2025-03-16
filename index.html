@@ -183,37 +183,6 @@ body {
     background-size: 200% 200%;
     animation: movingDots 10s linear infinite;
 }
-
-/* Animated Network Lines */
-.animated-lines {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: -1;
-}
-
-.animated-lines::before, .animated-lines::after {
-    content: "";
-    position: absolute;
-    width: 120%;
-    height: 120%;
-    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%);
-    opacity: 0.3;
-    animation: moveLines 10s infinite linear;
-}
-
-.animated-lines::after {
-    animation-delay: 5s;
-}
-
-@keyframes moveLines {
-    0% { transform: translateX(-10%) translateY(-10%); }
-    100% { transform: translateX(10%) translateY(10%); }
-}
     </style>
 </head>
 <body>
@@ -338,7 +307,5 @@ body {
                     document.getElementById("currentYear").textContent = new Date().getFullYear();
                 });
             </script>
-            <!-- Animated Background -->
-<div class="animated-lines"></div>
 </body>
 </html>
