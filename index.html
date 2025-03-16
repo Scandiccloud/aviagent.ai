@@ -18,203 +18,7 @@
     
     <title>AviAgent.ai | AI-Powered Aviation Manual Assistant</title>
 
-    <style>
-        /* Optimized CSS with critical fixes */
-        :root {
-            --primary-blue: #2A5CAA;
-            --secondary-blue: #1E3A8A;
-            --background: #f8f9fa;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background: var(--background);
-            color: #333;
-            text-align: center;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .header-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-            margin: 40px 0;
-            flex-wrap: wrap;
-            padding: 0 20px;
-        }
-
-        .logo {
-            width: min(180px, 30vw);
-            height: auto;
-            transition: transform 0.3s ease;
-        }
-
-        h1 {
-            color: var(--primary-blue);
-            font-size: clamp(1.8rem, 5vw, 2.2rem);
-            margin: 0;
-            line-height: 1.3;
-        }
-
-        .subhead {
-            font-size: clamp(1.2rem, 3vw, 1.4rem);
-            margin-top: 15px;
-            font-weight: 400;
-        }
-
-        .section {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 30px 25px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        .form-container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 25px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        .form-wrapper {
-            position: relative;
-            min-height: 650px;
-        }
-
-        #tally-iframe {
-            border: none;
-            width: 100%;
-            height: 650px;
-        }
-
-        @media (max-width: 768px) {
-            .header-container {
-                gap: 15px;
-                margin: 30px 0;
-            }
-            
-            .form-container {
-                margin: 20px auto;
-                width: 95%;
-            }
-        }
-
-        footer {
-            margin-top: auto;
-            padding: 40px 20px;
-            color: #666;
-            border-top: 1px solid #eee;
-        }
-            /* New Join Button Styles */
-    .join-button {
-        background: #2A5CAA;
-        color: white !important;
-        padding: 12px 30px;
-        border-radius: 30px;
-        text-decoration: none !important;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        display: inline-block;
-        margin-top: 20px;
-        border: 2px solid #1E3A8A;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-
-    .join-button:hover {
-        background: #1E3A8A;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    }
-
-    /* Update header container for better spacing */
-    .header-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 30px;
-        margin: 40px 0 30px;
-        flex-wrap: wrap;
-    }
-
-    @media (max-width: 768px) {
-        .join-button {
-            padding: 10px 25px;
-            font-size: 0.95rem;
-            margin-top: 15px;
-        }
-        
-        .header-container {
-            margin: 30px 0 20px;
-        }
-    }
-    #tally-form {
-        scroll-margin-top: 100px; /* Adjust based on your header height */
-    }
-    .form-loader {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #2A5CAA;
-    padding: 10px;
-    animation: fadeOut 0.5s ease-out forwards;
-}
-
-@keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; visibility: hidden; }
-}
-/* Keep Original Background Color */
-body {
-    background-color: #f8f9fa; /* Keep the original light background */
-    overflow: hidden; /* Prevent scrollbars */
-}
-
-/* Animated AI Network Lines */
-.animated-lines {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-}
-
-.animated-lines canvas {
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-.animated-lines canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none; /* Fix: Allow scrolling */
-    z-index: -1;
-}
-@media (max-width: 768px) {
-    .animated-lines canvas {
-        width: 100vw;
-        height: 100vh;
-        opacity: 0.6; /* Reduce intensity for better readability */
-    }
-}
-body {
-    overflow-y: auto; /* Allow vertical scrolling */
-    min-height: 100vh; /* Ensure full page scrollability */
-}
-    </style>
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
     <!-- Header Section -->
@@ -227,7 +31,6 @@ body {
                 <a href="#tally-form" class="join-button">Join Waitlist Now</a>
             </div>
         </div>        
-        
     </header>
 
     <!-- Main Content -->
@@ -257,157 +60,35 @@ body {
             </div>
         </section>
 
-<!-- Modified Form Section -->
-<div id="tally-form" class="form-container">
-    <div class="form-loader">Loading form...</div>
-    <iframe id="tally-iframe"
-            data-tally-src="https://tally.so/embed/mYkqz0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-            title="Aviation Professional Waitlist"
-            loading="eager">
-    </iframe>
-</div>
+        <!-- Contact Form Section -->
+        <div id="tally-form" class="form-container">
+            <div class="form-loader">Loading form...</div>
+            <iframe id="tally-iframe"
+                    data-tally-src="https://tally.so/embed/mYkqz0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+                    title="Aviation Professional Waitlist"
+                    loading="eager">
+            </iframe>
+        </div>
+    </main>
 
-<!-- Add this JavaScript for smooth scroll behavior -->
-<script>
-    document.querySelectorAll('a[href="#tally-form"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const formSection = document.getElementById('tally-form');
-            formSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        });
-    });
-</script>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="/about.html">About</a>
+            <span class="separator">|</span>
+            <a href="/terms.html">Terms</a>
+            <span class="separator">|</span>
+            <a href="/privacy.html">Privacy Policy</a>
+            <span class="separator">|</span>
+            <a href="/contact.html">Contact</a>
+        </div>
+        <p class="copyright">
+            &copy; <span id="currentYear"></span> AviAgent.ai. All rights reserved. 
+        </p>
+    </footer>
 
-    <!-- Tally Script -->
+    <!-- External Scripts -->
     <script src="https://tally.so/widgets/embed.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const formIframe = document.querySelector('#tally-form iframe');
-        const formLoader = document.querySelector('.form-loader');
-
-        const loadTally = () => {
-            formLoader.style.display = 'block'; // Show loader when starting
-            
-            if(typeof Tally !== 'undefined') {
-                Tally.load().then(() => {
-                    formIframe.style.opacity = 1;
-                    formLoader.style.display = 'none'; // Hide on success
-                }).catch(error => {
-                    console.error('Tally load error:', error);
-                    formLoader.innerHTML = 'Form failed to load. Please <a href="https://tally.so/r/mYkqz0">click here</a>';
-                });
-            }
-        };
-
-        // Initial load
-        if(!document.querySelector('script[src="https://tally.so/widgets/embed.js"]')) {
-            const script = document.createElement('script');
-            script.src = 'https://tally.so/widgets/embed.js';
-            script.onload = loadTally;
-            script.onerror = () => {
-                formLoader.style.display = 'block';
-                formLoader.innerHTML = 'Form failed to load. Please <a href="https://tally.so/r/mYkqz0">click here</a>';
-            };
-            document.body.appendChild(script);
-        } else {
-            loadTally();
-        }
-    });
-</script>
-                <!-- Footer -->
-                <footer>
-                    <div class="footer-links">
-                        <a href="/about.html">About</a>
-                        <span class="separator">|</span>
-                        <a href="/terms.html">Terms</a>
-                        <span class="separator">|</span>
-                        <a href="/privacy.html">Privacy Policy</a>
-                        <span class="separator">|</span>
-                        <a href="/contact.html">Contact</a>
-                    </div>
-                    <p class="copyright">
-                        &copy; <span id="currentYear"></span> AviAgent.ai. All rights reserved. 
-                    </p>
-                </footer>
-                </div>
-                <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                    document.getElementById("currentYear").textContent = new Date().getFullYear();
-                });
-            </script>
-            <!-- Animated AI Network Background -->
-<div class="animated-lines">
-    <canvas id="ai-network"></canvas>
-</div>
-
-<!-- Script for AI Lines & Flashing Network Joints -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const canvas = document.getElementById("ai-network");
-    const ctx = canvas.getContext("2d");
-    
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const nodes = [];
-    const numNodes = 30;
-
-    // Create nodes with random positions
-    for (let i = 0; i < numNodes; i++) {
-        nodes.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            vx: (Math.random() - 0.5) * 0.5,
-            vy: (Math.random() - 0.5) * 0.5,
-            size: Math.random() * 3 + 2
-        });
-    }
-
-    function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // Draw lines between nodes
-        for (let i = 0; i < nodes.length; i++) {
-            for (let j = i + 1; j < nodes.length; j++) {
-                const dx = nodes[i].x - nodes[j].x;
-                const dy = nodes[i].y - nodes[j].y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-
-                if (distance < 150) {
-                    ctx.strokeStyle = `rgba(42, 92, 170, ${1 - distance / 150})`;
-                    ctx.lineWidth = 1;
-                    ctx.beginPath();
-                    ctx.moveTo(nodes[i].x, nodes[i].y);
-                    ctx.lineTo(nodes[j].x, nodes[j].y);
-                    ctx.stroke();
-                }
-            }
-        }
-
-        // Draw nodes (flashing effect)
-        for (let i = 0; i < nodes.length; i++) {
-            ctx.fillStyle = `rgba(42, 92, 170, ${Math.random() * 0.8 + 0.2})`;
-            ctx.beginPath();
-            ctx.arc(nodes[i].x, nodes[i].y, nodes[i].size, 0, Math.PI * 2);
-            ctx.fill();
-
-            // Move nodes slightly
-            nodes[i].x += nodes[i].vx;
-            nodes[i].y += nodes[i].vy;
-
-            // Keep nodes within bounds
-            if (nodes[i].x <= 0 || nodes[i].x >= canvas.width) nodes[i].vx *= -1;
-            if (nodes[i].y <= 0 || nodes[i].y >= canvas.height) nodes[i].vy *= -1;
-        }
-
-        requestAnimationFrame(draw);
-    }
-
-    draw();
-});
-</script>
+    <script src="assets/scripts.js" nonce="123456"></script>
 </body>
 </html>

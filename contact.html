@@ -4,50 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - AviAgent.ai</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f8f9fa;
-            text-align: center;
-        }
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        h1 {
-            color: #2A5CAA;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 1rem;
-        }
-        button {
-            background: #2A5CAA;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            font-size: 1rem;
-            cursor: pointer;
-            border-radius: 6px;
-        }
-        button:hover {
-            background: #1E3A8A;
-        }
-        a {
-            color: #2A5CAA;
-            text-decoration: none;
-        }
-    </style>
+
+    <!-- Link to External Styles -->
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
 
@@ -68,33 +27,7 @@
         <p><a href="index.html">← Back to Home</a></p>
     </div>
 
-    <script>
-        document.getElementById("contact-form").addEventListener("submit", function(event) {
-            event.preventDefault();
-        
-            const name = document.getElementById("name").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const message = document.getElementById("message").value.trim();
-            
-            if (name === "" || email === "" || message.length < 10) {
-                document.getElementById("response-message").innerText = "Please fill in all fields correctly.";
-                return;
-            }
-        
-            fetch("/api/sendMail", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name, email, message }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("response-message").innerText = data.message;
-            })
-            .catch(error => {
-                document.getElementById("response-message").innerText = "Error sending message.";
-            });
-        });
-        </script>
-
+    <!-- External Scripts -->
+    <script src="assets/scripts.js" nonce="123456"></script>
 </body>
 </html>

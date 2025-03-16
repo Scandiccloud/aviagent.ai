@@ -14,7 +14,7 @@
       "headers": [
         { 
           "key": "Content-Security-Policy", 
-          "value": "default-src 'self' https://tally.so; script-src 'self' https://tally.so 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://tally.so; img-src 'self' data: https://*.tally.so; frame-src https://tally.so; connect-src https://tally.so" 
+          "value": "default-src 'self' https://tally.so; script-src 'self' 'nonce-123456' https://tally.so; style-src 'self' 'sha256-ABC123DEF456GHI789JKL=' https://tally.so; img-src 'self' data: https://*.tally.so; frame-src 'self' https://tally.so; connect-src 'self' https://tally.so; object-src 'none';" 
         },
         { 
           "key": "Permissions-Policy", 
