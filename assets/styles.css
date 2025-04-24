@@ -35,14 +35,16 @@ body {
     gap: 30px;
     margin: 40px 0;
     flex-wrap: wrap;
+    text-align: center;
     padding: 0 20px;
 }
 
 header h1 {
-    text-align: left;
     margin: 0;
-    padding: 20px 0 10px 20px;
+    padding: 10px 0;
     color: var(--primary-blue);
+    font-size: 2rem;
+    text-align: center;
 }
 
 /* Logo */
@@ -319,4 +321,14 @@ footer a {
     left: 0;
     z-index: -1;
     pointer-events: none;
+  }
+  @media (max-width: 768px) {
+    .header-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    header h1 {
+      font-size: 1.5rem;
+    }
   }
